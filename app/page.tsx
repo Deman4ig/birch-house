@@ -1,19 +1,29 @@
-import Image from 'next/image';
+import { leagueScript } from './fonts';
 
 export default function Home() {
   return (
-    <div className='font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20'>
-      <main className='flex flex-col gap-[32px] row-start-2 items-center sm:items-start'>
-        <Image
-          className='dark:invert'
-          src='/next.svg'
-          alt='Next.js logo'
-          width={180}
-          height={38}
-          priority
-        />
+    <>
+      <main className='relative min-h-screen bg-hero overlay text-white'>
+        <div className='relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center'>
+          <span className='mt-4 text-white/90 text-base sm:text-large md:text-xl font-light drop-shadow-md'>
+            The Birch House
+          </span>
+          <h1
+            className={`${leagueScript.className} mt-4 text-white text-6xl sm:text-7xl md:text-8xl drop-shadow-md`}
+          >
+            Coming Soon...
+          </h1>
+        </div>
       </main>
-      <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'></footer>
-    </div>
+      <footer className='pointer-events-none absolute inset-x-0 bottom-0 z-10 mb-6 w-full px-4'>
+        <div
+          className='mx-auto max-w-6xl flex justify-center flex-col items-center text-center
+                    text-white/90 sm:text-large md:text-xl drop-shadow-md text-base font-light tracking-wide text-center'
+        >
+          <span></span>
+          <span>White Mountains, NH by Everstay</span>
+        </div>
+      </footer>
+    </>
   );
 }
