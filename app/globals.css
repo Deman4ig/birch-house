@@ -1,29 +1,5 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@import "tw-animate-css";
 
 .bg-hero {
   background-image: url('/images/hero.jpg');
@@ -38,4 +14,236 @@ body {
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   pointer-events: none;
+}
+
+
+@import "tailwindcss";
+
+/* ------------------------------------------------------
+   Everstay Design System - Tailwind v4.1 globals.css
+   Brand: Everstay — Crafted spaces for slow living
+   Palette: Green Sprout, Alabaster, Birch, Taupe, Clay
+   ------------------------------------------------------ */
+
+/* Theme tokens (Tailwind v4 reads these CSS variables) */
+@theme {
+  /* Colors */
+  --color-background: #EDEAE4;
+  /* Alabaster */
+  --color-foreground: #3C3B37;
+  /* Charcoal Mist */
+
+  --color-card: #FAF8F5;
+  /* Cream surface */
+  --color-card-foreground: #3C3B37;
+
+  --color-popover: #FAF8F5;
+  --color-popover-foreground: #3C3B37;
+
+  --color-primary: #7B8466;
+  /* Green Sprout */
+  --color-primary-foreground: #EDEAE4;
+
+  --color-secondary: #A59D90;
+  /* Taupe */
+  --color-secondary-foreground: #3C3B37;
+
+  --color-muted: #FAF8F5;
+  /* Cream */
+  --color-muted-foreground: #706C65;
+  /* Sand Mist */
+
+  --color-accent: #B56A3E;
+  /* Warm Clay */
+  --color-accent-foreground: #FFFFFF;
+
+  --color-destructive: #C0643F;
+  /* Clay Red */
+  --color-destructive-foreground: #FFFFFF;
+
+  --color-border: #D9C4A5;
+  /* Birch Border */
+  --color-input: #D9C4A5;
+  --color-ring: #7B8466;
+
+  /* Radii */
+  --radius: 12px;
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Cormorant Garamond", serif;
+
+  /* Shadows */
+  --shadow-card: 0 4px 8px rgba(60, 59, 55, 0.10);
+  --shadow-soft: 0 2px 4px rgba(60, 59, 55, 0.08);
+}
+
+/* Dark mode overrides */
+@theme .dark {
+  --color-background: #1E1D1B;
+  --color-foreground: #EDEAE4;
+
+  --color-card: #282724;
+  --color-card-foreground: #EDEAE4;
+
+  --color-popover: #2E2D2A;
+  --color-popover-foreground: #EDEAE4;
+
+  --color-primary: #4B5340;
+  /* Forest Deep */
+  --color-primary-foreground: #EDEAE4;
+
+  --color-secondary: #54534E;
+  --color-secondary-foreground: #EDEAE4;
+
+  --color-muted: #2F2E2B;
+  --color-muted-foreground: #B9B6B0;
+
+  --color-accent: #B56A3E;
+  --color-accent-foreground: #FFFFFF;
+
+  --color-destructive: #BE5A3C;
+  --color-destructive-foreground: #FFFFFF;
+
+  --color-border: #484540;
+  --color-input: #484540;
+  --color-ring: #4B5340;
+}
+
+/* Base element polish */
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  color-scheme: light;
+}
+
+.dark html {
+  color-scheme: dark;
+}
+
+body {
+  @apply text-foreground bg-background;
+  background: var(--color-background);
+  /* color: var(--color-foreground); */
+  /* font-family: var(--font-sans); */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography helpers (optional) */
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+}
+
+/* Card & panel helpers */
+.card {
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+}
+
+/* Form element defaults to match the brand */
+input,
+textarea,
+select {
+  background: var(--color-muted);
+  border: 1px solid var(--color-input);
+  border-radius: var(--radius-md);
+  color: var(--color-foreground);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-muted-foreground);
+}
+
+/* Focus ring */
+:where(button, a, input, textarea, select):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-ring), transparent 65%);
+  border-color: var(--color-ring);
+}
+
+/* Button minimal reset for non-shadcn buttons (shadcn already styles via utilities) */
+.button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.button-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.button-primary:hover {
+  filter: brightness(0.95);
+}
+
+.button-secondary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+}
+
+/* Calendar (shadcn uses react-day-picker) */
+.rdp {
+  --rdp-accent-color: var(--color-primary);
+  --rdp-outline: 2px solid color-mix(in srgb, var(--color-primary), transparent 65%);
+  --rdp-background-color: color-mix(in srgb, var(--color-primary), white 90%);
+}
+
+.rdp-caption_label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-radius: 10px;
+}
+
+.rdp-day:hover {
+  background: color-mix(in srgb, var(--color-primary), transparent 90%);
+}
+
+.rdp-months {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: .5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Utility: soft container */
+.container-soft {
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
 }
