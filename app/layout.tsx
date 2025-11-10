@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { montserrat } from './fonts';
+import { TopPanel } from './components/TopPanel';
 
 export const metadata: Metadata = {
   title: 'The Birch House by Everstay',
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={` ${montserrat.className} antialiased`}>{children}</body>
+      <body className={` ${montserrat.className} antialiased`}>
+        <TopPanel />
+        {children}
+      </body>
     </html>
   );
 }
